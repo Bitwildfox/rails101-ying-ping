@@ -43,7 +43,7 @@ class GroupsController < ApplicationController
   def destroy
 
     @group.destroy
-    flash[:alert] = "Group deleted"
+    flash[:alert] = "讨论版已删除"
     redirect_to groups_path
   end
 
@@ -79,7 +79,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
 
     if current_user != @group.user
-      redirect_to root_path, alert: "You have no permission."
+      redirect_to root_path, alert: "你没有权限."
     end
   end
 
