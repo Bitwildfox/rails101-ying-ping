@@ -20,6 +20,33 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @group = Group.find(params[:group_id])
+    @post = Post.find(params[:id])
+    @post.group @group
+  end
+
+  def update
+    @group = Group.find(params[:group_id])
+    @post = Post.find(params[:id])
+    @post.group @group
+    @post.user = current_user
+
+    if @post.update(post_params)
+      redirect_to account_posts_path, notice:'更新成功'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @group = Group.find(params[:group_id])
+    @post = Post.find(params[:id])
+    @post.group = @group
+    @post.destroy
+    flash[:alert] = "文章删除成功"
+    redirect_to account_posts_path
+  end
 
   private
 
