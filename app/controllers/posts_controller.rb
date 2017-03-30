@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.update(post_params)
-      redirect_to account_posts_path, notice:'更新成功'
+      redirect_to account_posts_path, notice:'修改成功'
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.group = @group
     @post.destroy
-    flash[:alert] = "文章删除成功"
+    flash[:alert] = "评论已删除"
     redirect_to account_posts_path
   end
 

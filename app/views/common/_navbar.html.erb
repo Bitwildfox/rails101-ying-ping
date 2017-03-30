@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Rails 103</a>
+            <a class="navbar-brand" href="/">大众电影</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,10 +18,10 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li> <%= link_to("我的讨论版", account_groups_path) %></li>
-                        <li> <%= link_to("我的文章", account_posts_path) %></li>
+                        <li> <%= link_to("发布&收藏", account_groups_path) %></li>
+                        <li> <%= link_to("我的影评", account_posts_path) %></li>
                         <li class="divider"> </li>
-                        <li> <%= link_to("退出", destroy_user_session_path ,method: :delete) %> </li>
+                        <li> <%= link_to("退出登陆", destroy_user_session_path ,method: :delete) %> </li>
                     </ul>
                   </li>
                 <% end %>

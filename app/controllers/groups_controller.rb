@@ -43,7 +43,7 @@ class GroupsController < ApplicationController
   def destroy
 
     @group.destroy
-    flash[:alert] = "讨论版已删除"
+    flash[:alert] = "电影已删除"
     redirect_to groups_path
   end
 
@@ -52,9 +52,9 @@ class GroupsController < ApplicationController
 
       if !current_user.is_member_of?(@group)
         current_user.join!(@group)
-        flash[:notice] = "加入本讨论版成功!"
+        flash[:notice] = "影片收藏成功!"
       else
-        flash[:warning] = "你已经是本讨论版成员了"
+        flash[:warning] = "你已经收藏该电影了"
       end
 
       redirect_to group_path(@group)
@@ -65,9 +65,9 @@ class GroupsController < ApplicationController
 
       if current_user.is_member_of?(@group)
         current_user.quit!(@group)
-        flash[:alert] = "已退出本讨论版!"
+        flash[:alert] = "已取消收藏!"
       else
-        flash[:warning] = "你不是本讨论版成员，怎么退出 XD"
+        flash[:warning] = "你没有收藏影片，不能取消收藏 XD"
       end
 
       redirect_to group_path(@group)
